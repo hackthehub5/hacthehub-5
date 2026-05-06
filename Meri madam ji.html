@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffe6ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 14px;
+  color: #444;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 8px;
+  background: #ff6b81;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff4d6d;
+}
+
+#output {
+  margin-top: 10px;
+  min-height: 40px;
+  font-size: 14px;
+}
+
+#secret {
+  display: none;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Meri pyaari si madam ji ❤️</h2>
+
+<p>Ye chhota sa care page aapke liye 😌</p>
+
+<button onclick="handleClick('pain')">💊 Pain Mode</button>
+<button onclick="handleClick('sad')">😔 Sad Mode</button>
+<button onclick="handleClick('fun')">😂 Need Smile</button>
+
+<div id="output"></div>
+
+<button onclick="showSecret()">🔐 Secret</button>
+
+<p id="secret">
+Tu annoying hai… par important bhi hai ❤️  
+Har baar paas nahi ho pata… par care hamesha rahegi ❤️
+</p>
+
+</div>
+
+<!-- 🔊 SOUND -->
+<audio id="clickSound" preload="auto">
+  <source src="click.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playSound() {
+  let sound = document.getElementById("clickSound");
+  sound.currentTime = 0;
+  sound.play().catch(() => {});
+}
+
+function handleClick(type) {
+  playSound();
+
+  let messages = {
+    pain: "Paani piyo 😤 aur rest karo... main hota toh heating pad de deta 😌❤️",
+    sad: "Mood off hai? Koi baat nahi... tu strong hai ❤️ aur main hoon na 🫶",
+    fun: "Tu gussa hoti hai toh aur dangerous lagti hai 😭😂"
+  };
+
+  document.getElementById("output").innerText = messages[type];
+}
+
+function showSecret() {
+  playSound();
+  document.getElementById("secret").style.display = "block";
+}
+</script>
+
+</body>
+</html>
